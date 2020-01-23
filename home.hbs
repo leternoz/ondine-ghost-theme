@@ -1,0 +1,129 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+<header class="site-home-header">
+    {{> header-background background=@site.cover_image}}
+    {{!-- Special header-image.hbs partial to generate the background image --}}
+    <div class="inner">
+        <div class="site-header-content">
+            <h1 class="site-title">
+                {{#if @site.logo}}
+                <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
+                {{else}}
+                {{@site.title}}
+                {{/if}}
+            </h1>
+            <h2 class="site-description">{{@site.description}}</h2>
+        </div>
+        {{!-- custom nav --}}
+        <div>
+            {{> site-nav}}
+        </div>
+    </div>
+    </div>
+    {{!-- {{> site-header}} --}}
+</header>
+
+{{> site-header}}
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+        {{#get "posts" filter="slug:home-2" as |post|}}
+        {{#post}}
+        <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    {{content}}
+                </div>
+            </section>
+
+            {{!-- Email subscribe form at the bottom of the page --}}
+            {{#if @labs.members}}
+            {{> subscribe-form}}
+            {{/if}}
+
+            {{!--
+            <section class="post-full-comments">
+                If you want to embed comments, this is a good place to do it!
+            </section>
+            --}}
+
+        </article>
+        {{/post}}
+        {{/get}}
+    </div>
+
+    {{!-- I will deactivate until I have articles to show --}}
+    {{!-- {{> featured-posts}} --}}
+
+</main>
+
+
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+    // NOTE: Scroll performance is poor in Safari
+    // - this appears to be due to the events firing much more slowly in Safari.
+    //   Dropping the scroll event and using only a raf loop results in smoother
+    //   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+
+        var nav = document.querySelector('.site-nav-main .site-nav');
+        var feed = document.querySelector('.post-full');
+
+        var lastScrollY = window.scrollY;
+        var lastWindowHeight = window.innerHeight;
+        var lastDocumentHeight = $(document).height();
+        var ticking = false;
+
+        function onScroll() {
+            lastScrollY = window.scrollY;
+            requestTick();
+        }
+
+        function onResize() {
+            lastWindowHeight = window.innerHeight;
+            lastDocumentHeight = $(document).height();
+            requestTick();
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(update);
+            }
+            ticking = true;
+        }
+
+        function update() {
+            var trigger = feed.getBoundingClientRect().top + window.scrollY;
+            var progressMax = lastDocumentHeight - lastWindowHeight;
+
+
+            // show/hide nav
+            if (lastScrollY >= trigger - 20 || innerWidth <= 700) {
+                // activated for responsive
+                nav.classList.add('fixed-nav-active');
+            } else {
+                nav.classList.remove('fixed-nav-active');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize, false);
+
+        update();
+
+    });
+
+    $(function () {
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+    });
+</script>
+{{/contentFor}}

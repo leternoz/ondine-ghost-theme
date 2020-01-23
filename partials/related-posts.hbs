@@ -1,0 +1,11 @@
+{{#get "posts" limit="5" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |related|}}
+{{/get}}
+<section class="featured-posts">
+    <h3>Related posts</h3>
+    <ol>
+        {{#foreach featured}}
+        <li><a href="{{url}}">{{title}}</a></li>
+        {{/foreach}}
+    </ol>
+</section>
+{{/get}}
