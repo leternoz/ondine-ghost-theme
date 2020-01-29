@@ -30,8 +30,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
     <div class="inner">
-        {{#get "posts" filter="slug:home-2" as |post|}}
-        {{#post}}
+        {{#page}}
         <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
             <section class="post-full-content">
@@ -40,20 +39,8 @@ into the {body} of the default.hbs template --}}
                 </div>
             </section>
 
-            {{!-- Email subscribe form at the bottom of the page --}}
-            {{#if @labs.members}}
-            {{> subscribe-form}}
-            {{/if}}
-
-            {{!--
-            <section class="post-full-comments">
-                If you want to embed comments, this is a good place to do it!
-            </section>
-            --}}
-
         </article>
-        {{/post}}
-        {{/get}}
+        {{/page}}
     </div>
 
     {{!-- I will deactivate until I have articles to show --}}

@@ -4,6 +4,7 @@
 :root {
   --primary: #47b6ff;
   --secondary: white;
+  --third: #484848;
   /* Colours */
   --blue: #47b6ff;
   --darkblue: #2d6ffc;
@@ -19,6 +20,12 @@
   --pink: #fa3a57;
   --brown: #a3821a;
   --darkmode: color(var(--darkgrey) l(+2%));
+  /* Articles */
+  --h1: #0034a3;
+  --h2: #527ad0;
+  --h3: #0045d9;
+  --h4: #0050fc;
+  --metadata: #b7cbf5;
 }
 
 /* Reset
