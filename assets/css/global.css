@@ -4,7 +4,7 @@
 :root {
   --primary: #47b6ff;
   --secondary: white;
-  --third: #484848;
+  --third: #6293fd;
   /* Colours */
   --blue: #47b6ff;
   --darkblue: #2d6ffc;
@@ -21,11 +21,12 @@
   --brown: #a3821a;
   --darkmode: color(var(--darkgrey) l(+2%));
   /* Articles */
+  --text: #484848;
   --h1: #0034a3;
   --h2: #527ad0;
-  --h3: #0045d9;
+  --h3: #7493d6;
   --h4: #0050fc;
-  --metadata: #b7cbf5;
+  --metadata: #8ba1cd;
 }
 
 /* Reset
