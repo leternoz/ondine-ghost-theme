@@ -529,7 +529,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .nav li a {
   position: relative;
-  font-size: 1.7vw;
+  font-size: 2vw;
   letter-spacing: 2px;
   display: block;
   padding: 12px 18px;
@@ -571,14 +571,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     font-size: 1rem;
     height: 35px;
   }
-  .nav li:first-child a {
-    padding: 5px 16px;
-  }
   .nav li a {
     padding: 5px 10px;
-  }
-  .site-nav-personal-logo .fullname {
-    font-size: 15px;
   }
 }
 
@@ -669,11 +663,15 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     font-size: 1.8em;
   }
 
+  .nav li:first-child a {
+    padding-top: 25px;
+  }
+
   .nav li a {
     text-align: left;
-    font-size: 3vw;
+    font-size: 4vw;
     color: color(var(--primary));
-    padding: 12px 18px;
+    padding: 15px 18px;
   }
 
   .site-nav-content #hidden-hamburger-checkbox:checked ~ .nav {
@@ -1250,6 +1248,14 @@ make sure this only happens on large viewports / desktop-ish devices.
 .timeline-post-full-content .post-content > h3,
 .timeline-post-full-content .post-content > p {
   padding: 0 14vw;
+  max-width: 860px;
+}
+@media (max-width: 600px){
+  .timeline-post-full-content .post-content > h2,
+  .timeline-post-full-content .post-content > h3,
+  .timeline-post-full-content .post-content > p {
+    padding: 0;
+  }  
 }
 
 @media (max-width: 500px) {
@@ -2783,6 +2789,34 @@ Usage (In Ghost editor):
   margin: 1vw;
   overflow: hidden;
 }
+@media (max-width: 1000px) {
+  .calendar {
+    column-count: 2;
+  }
+
+  .calendar-card {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: 40vw;
+    min-height: unset;
+    max-height: unset;
+    margin: 3vw auto;
+    margin: 0;
+    page-break-inside: avoid;
+  }
+}
+@media (max-width: 700px) {
+  .calendar {
+    column-count: 1;
+  }
+
+  .calendar-card {
+    width: 225px;
+    height: 330px;
+    margin: 4vw auto;
+  }
+}
 
 .calendar-card .date {
   display: flex;
@@ -2791,6 +2825,12 @@ Usage (In Ghost editor):
   width: 20%;
   background-color: color(var(--primary));
   text-align: center;
+}
+@media (max-width: 1000px) {
+  .calendar-card .date {
+    width: 100%;
+    height: 30%;
+  }
 }
 
 .calendar-card .date .day {
@@ -2822,14 +2862,18 @@ Usage (In Ghost editor):
     font-size: 30px;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .calendar-card .date .day {
-    font-size: 35px;
+    font-size: 50px;
   }
 
   .calendar-card .date .month {
-    font-size: 20px;
+    font-size: 25px;
   }
+}
+
+.calendar-card .event {
+  width: 75%;
 }
 
 .calendar-card .event {
@@ -2843,6 +2887,13 @@ Usage (In Ghost editor):
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .calendar-card .event .event-title {
+    padding: 0 2vw;
+    font-size: 2rem;
+  }
 }
 
 .calendar-card .event .event-description {
@@ -2866,21 +2917,18 @@ Usage (In Ghost editor):
   }
 }
 @media (max-width: 1000px) {
-  .calendar-card .event .event-description {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-  }
-}
-@media (max-width: 800px) {
   .calendar-card .event {
-    display: flex;
-    align-items: center;
+    width: 100%;
+    height: 55%;
+    align-items: flex-start;
+    flex-direction: column;
   }
-
   .calendar-card .event .event-description {
-    display: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    line-height: 25px;
+    padding: 0 12px;
   }
 }
 
@@ -2888,7 +2936,7 @@ Usage (In Ghost editor):
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5%;
+  width: 8%;
   min-width: 35px;
   box-shadow: none;
 }
@@ -2902,32 +2950,32 @@ Usage (In Ghost editor):
   position: relative;
   right: 10%;
   border: solid color(var(--primary));
-  border-width: 0 0.5vw 0.5vw 0;
+  border-width: 0 7px 7px 0;
   display: inline-block;
-  padding: 0.5vw;
+  padding: 0.7vw;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
 
 .calendar-card .event-link:hover .arrow {
   border: solid color(var(--third));
-  border-width: 0 0.5vw 0.5vw 0;
+  border-width: 0 7px 7px 0;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .calendar-card .event-link {
-    width: 15%;
+    margin-left: auto;
+    top: 10px;
+    width: 20%;
+    height: 15%;
   }
-
   .calendar-card .event-link .arrow {
-    border-width: 0 0.7vw 0.7vw 0;
-    right: 5%;
-    padding: 1vw;
+    border-width: 0 5px 5px 0;
+    padding: 6px;
   }
-
   .calendar-card .event-link:hover .arrow {
-    border-width: 0 0.7vw 0.7vw 0;
-    padding: 1vw;
+    border-width: 0 5px 5px 0;
+    padding: 6px;
   }
 }
 
@@ -2956,7 +3004,7 @@ Usage (In Ghost editor):
   margin-bottom: 30px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .social-media {
     column-count: 1;
   }
