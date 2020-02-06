@@ -23,6 +23,7 @@ into the {body} of the default.hbs template --}}
                 <h1 class="post-full-title">{{title}}</h1>
             </header>
 
+            <!--
             {{#if feature_image}}
             <figure class="post-full-image">
                 {{!-- This is a responsive image, it loads different sizes depending on device
@@ -40,6 +41,7 @@ into the {body} of the default.hbs template --}}
                 />
             </figure>
             {{/if}}
+            -->
 
             <section class="post-full-content">
                 <div class="post-content">
@@ -57,7 +59,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 <script>
-    $(function() {
+    $(function () {
         var $postContent = $(".post-full-content");
         $postContent.fitVids();
     });

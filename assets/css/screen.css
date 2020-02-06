@@ -104,6 +104,15 @@ body {
   }
 }
 
+
+.home-page-body .home-page-title {
+  display: none;
+}
+
+.home-page-body section {
+  padding-bottom: 0;
+}
+
 /* 4. Site Header
 /* ---------------------------------------------------------- */
 
@@ -861,7 +870,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .post-card-content-link {
   position: relative;
   display: block;
-  color: var(--darkgrey);
+  color: var(--h1);
 }
 
 .post-card-content-link:hover {

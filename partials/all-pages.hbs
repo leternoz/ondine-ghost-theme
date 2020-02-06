@@ -1,0 +1,11 @@
+{{#get "pages" filter="featured:false" limit="3" as |featured|}}
+<div class="inner posts">
+    <div class="post-feed">
+        {{#foreach featured}}
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+        {{/foreach}}
+    </div>
+
+</div>
+{{/get}}

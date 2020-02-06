@@ -29,22 +29,26 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
-    <div class="inner">
+    <div class="inner home-page-body">
         {{#page}}
         <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+            <header class="home-page-title">
+                <h1 class="post-full-title">{{title}}</h1>
+            </header>
 
             <section class="post-full-content">
                 <div class="post-content">
                     {{content}}
                 </div>
+
             </section>
 
         </article>
+        {{> all-pages}}
         {{/page}}
     </div>
 
-    {{!-- I will deactivate until I have articles to show --}}
-    {{!-- {{> featured-posts}} --}}
 
 </main>
 
