@@ -104,7 +104,6 @@ body {
   }
 }
 
-
 .home-page-body .home-page-title {
   display: none;
 }
@@ -1259,12 +1258,12 @@ make sure this only happens on large viewports / desktop-ish devices.
   padding: 0 14vw;
   max-width: 860px;
 }
-@media (max-width: 600px){
+@media (max-width: 600px) {
   .timeline-post-full-content .post-content > h2,
   .timeline-post-full-content .post-content > h3,
   .timeline-post-full-content .post-content > p {
     padding: 0;
-  }  
+  }
 }
 
 @media (max-width: 500px) {
@@ -2551,7 +2550,7 @@ Usage (In Ghost editor):
 
 .timeline {
   position: relative;
-  margin: 0 auto;
+  margin: 1vw auto;
   width: 100%;
   max-width: 1400px;
 }
@@ -2986,6 +2985,49 @@ Usage (In Ghost editor):
     border-width: 0 5px 5px 0;
     padding: 6px;
   }
+}
+
+.world-map-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.world-map-figure {
+  width: 90vw;
+  max-width: 1200px;
+  height: 45vw;
+  max-height: 600px;
+  margin: 1vw 0;
+}
+
+.world-map-buttons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1vw 0;
+  border-radius: 4px;
+}
+
+.world-map-buttons button {
+  background-color: color(var(--primary));
+  color: color(var(--secondary));
+  font-weight: 600;
+  font-size: 0.8em;
+  width: 16vw;
+  min-width: 220px;
+  height: 4vw;
+  min-height: 55px;
+  line-height: 1.5em;
+  margin: 1vw;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.world-map-buttons button:hover {
+  background-color: color(var(--third));
 }
 
 .social-media {
