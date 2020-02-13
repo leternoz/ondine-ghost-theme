@@ -25,7 +25,9 @@ into the {body} of the default.hbs template --}}
     {{!-- {{> site-header}} --}}
 </header>
 
-{{> site-header}}
+<div class="home-header-for-mobile big-logo">
+    {{> site-header}}
+</div>
 
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
@@ -64,6 +66,7 @@ into the {body} of the default.hbs template --}}
     $(document).ready(function () {
 
         var nav = document.querySelector('.site-nav-main .site-nav');
+        var mobileNav = document.querySelector('.home-header-for-mobile');
         var feed = document.querySelector('.post-full');
 
         var lastScrollY = window.scrollY;
@@ -73,6 +76,7 @@ into the {body} of the default.hbs template --}}
 
         function onScroll() {
             lastScrollY = window.scrollY;
+            console.log(lastScrollY);
             requestTick();
         }
 
@@ -98,8 +102,22 @@ into the {body} of the default.hbs template --}}
             if (lastScrollY >= trigger - 20 || innerWidth <= 700) {
                 // activated for responsive
                 nav.classList.add('fixed-nav-active');
-            } else {
+            }
+            else {
                 nav.classList.remove('fixed-nav-active');
+            }
+
+            // animate the logo on mobile
+            console.log("lastScrollY :" + lastScrollY);
+            console.log("trigger : " + trigger);
+            if (lastScrollY >= 30) {
+                // activated for mobile
+                console.log("hello");
+                mobileNav.classList.remove('big-logo');
+            }
+            if (lastScrollY < 30) {
+                console.log("bye");
+                mobileNav.classList.add('big-logo');
             }
 
             ticking = false;
