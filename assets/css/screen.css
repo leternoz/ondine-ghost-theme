@@ -63,6 +63,12 @@ body {
   flex-grow: 1;
 }
 
+@media (max-width: 600px) {
+  .site-main {
+    margin-top: 100px;
+  }
+}
+
 /* Full width page blocks */
 .outer {
   position: relative;
@@ -104,8 +110,10 @@ body {
   }
 }
 
-.home-page-body {
-  margin-top: 12vw;
+@media (max-width: 600px) {
+  .home-page-body {
+    margin-top: 12vw;
+  }
 }
 
 .home-page-body .home-page-title {
@@ -281,6 +289,7 @@ body {
 .site-nav-main {
   background: color(var(--secondary));
   position: fixed;
+  top: 0;
   padding: 0;
   width: 100%;
   height: 4vw;
@@ -513,6 +522,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   .site-nav-content #hidden-hamburger-checkbox:checked ~ #middle-hamburger-bar {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
+    transition: all 0.5s cubic-bezier(0.43, 0.51, 0.28, 1);
   }
 
   .site-nav-content #hidden-hamburger-checkbox:checked ~ #bottom-hamburger-bar {
@@ -774,24 +784,33 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.05s;
 }
 
-.big-logo .site-nav-main {
-  position: relative;
-  margin-bottom: 100px;
-  transition: all 0.5s cubic-bezier(0.43, 0.51, 0.28, 0.8);
-}
+/* .home-header-for-mobile {
+  display: none;
+} */
 
-.big-logo .site-nav-main .site-nav-logo {
-  position: absolute;
-  top: 15vw;
-  right: 32vw;
-  width: 38vw;
-  margin-right: 0;
-  transition: all 0.5s cubic-bezier(0.43, 0.51, 0.28, 1);
-}
+@media (max-width: 600px) {
+  .home-header-for-mobile {
+    display: block;
+  }
 
-.big-logo .site-nav-main .site-nav-logo img {
-  height: auto;
-  max-height: initial;
+  .big-logo .site-nav-main {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.43, 0.51, 0.28, 0.8);
+  }
+
+  .big-logo .site-nav-main .site-nav-logo {
+    position: absolute;
+    top: 15vw;
+    right: 32vw;
+    width: 38vw;
+    margin-right: 0;
+    transition: all 0.5s cubic-bezier(0.43, 0.51, 0.28, 1);
+  }
+
+  .big-logo .site-nav-main .site-nav-logo img {
+    height: auto;
+    max-height: initial;
+  }
 }
 
 @media (max-width: 700px) {
@@ -839,6 +858,11 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     position: initial;
     width: auto;
     height: auto;
+  }
+
+  /* Make ke the nav bar overlap the logo */
+  .site-nav-main .site-nav-content {
+    z-index: 100;
   }
 }
 

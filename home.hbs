@@ -76,7 +76,6 @@ into the {body} of the default.hbs template --}}
 
         function onScroll() {
             lastScrollY = window.scrollY;
-            console.log(lastScrollY);
             requestTick();
         }
 
@@ -108,15 +107,11 @@ into the {body} of the default.hbs template --}}
             }
 
             // animate the logo on mobile
-            console.log("lastScrollY :" + lastScrollY);
-            console.log("trigger : " + trigger);
-            if (lastScrollY >= 30) {
+            if (lastScrollY >= 50) {
                 // activated for mobile
-                console.log("hello");
                 mobileNav.classList.remove('big-logo');
             }
-            if (lastScrollY < 30) {
-                console.log("bye");
+            if (lastScrollY < 50) {
                 mobileNav.classList.add('big-logo');
             }
 
