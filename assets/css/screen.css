@@ -187,8 +187,14 @@ body {
 }
 
 .site-logo {
-  filter: invert(1);
   max-height: 100px;
+}
+
+@media (min-width: 601px) {
+  .site-logo,
+  .site-nav-logo {
+    filter: brightness(0) invert(1);
+  }
 }
 
 .site-description {
@@ -369,7 +375,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   z-index: 100;
   flex-shrink: 0;
   display: inline-block;
-  margin-right: 32px;
+  margin-right: 20px;
   padding: 12px 0;
   color: #fff;
 }
@@ -384,7 +390,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   height: 4vw;
   min-height: 40px;
   max-height: 60px;
-  filter: invert(1);
 }
 
 .site-home-header .site-nav-logo {
