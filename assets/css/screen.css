@@ -187,7 +187,8 @@ body {
 }
 
 .site-logo {
-  max-height: 100px;
+  height: 15vw;
+  max-height: 140px;
 }
 
 @media (min-width: 601px) {
@@ -806,8 +807,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   .big-logo .site-nav-main .site-nav-logo {
     position: absolute;
     top: 15vw;
-    right: 32vw;
-    width: 38vw;
+    right: 22vw;
+    width: 56vw;
     margin-right: 0;
     transition: all 0.5s cubic-bezier(0.43, 0.51, 0.28, 1);
   }
@@ -2683,7 +2684,6 @@ Usage (In Ghost editor):
 }
 
 .timeline-content {
-  position: relative;
   border-radius: 6px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -2733,6 +2733,25 @@ Usage (In Ghost editor):
 .timeline-content .metadata span {
   line-height: 25px;
   margin-left: 50px;
+}
+
+.timeline-content .metadata .date {
+  position: absolute;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: var(--primary);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+}
+
+.timeline-container.right .timeline-content .metadata .date {
+  right: 110px;
+  top: 290px;
+}
+
+.timeline-container.left .timeline-content .metadata .date {
+  left: 695px;
+  top: 290px;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -3073,6 +3092,7 @@ Usage (In Ghost editor):
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--midgrey);
   background-color: color(var(--secondary));
   font-size: 1.2vw;
   letter-spacing: 0.5px;
@@ -3093,16 +3113,12 @@ Usage (In Ghost editor):
   background-color: color(var(--whitegrey));
 }
 
-.world-map-buttons #post-crisis + label {
-  color: #00b118;
-}
 .world-map-buttons #post-crisis:checked + label {
   background-color: #00b118;
   color: color(var(--secondary));
 }
 
 .world-map-buttons #war-natural-emergency + label {
-  color: #f3a600;
   border-right: solid 1px #ddd;
   border-left: solid 1px #ddd;
 }
@@ -3111,9 +3127,6 @@ Usage (In Ghost editor):
   color: color(var(--secondary));
 }
 
-.world-map-buttons #sanitary-emergency + label {
-  color: #0089f1;
-}
 .world-map-buttons #sanitary-emergency:checked + label {
   background-color: #0089f1;
   color: color(var(--secondary));
