@@ -2,9 +2,9 @@
 /* ---------------------------------------------------------- */
 
 :root {
-  --primary: #47b6ff;
+  --primary: #3590bf;
   --secondary: white;
-  --third: #6293fd;
+  --third: #7ba4fd;
   /* Colours */
   --blue: #47b6ff;
   --darkblue: #2d6ffc;
@@ -350,6 +350,7 @@ ol,
 dl,
 blockquote {
   margin: 0 0 1.5em 0;
+  text-align: justify;
 }
 
 ol,

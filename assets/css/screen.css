@@ -201,7 +201,7 @@ body {
 .site-description {
   z-index: 10;
   margin: 0;
-  padding: 5px 0;
+  padding: 10px 0;
   font-size: 2.1rem;
   line-height: 1.4em;
   font-weight: 400;
@@ -235,7 +235,7 @@ body {
 }
 
 .site-home-header .site-description {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   font-weight: 300;
 }
 
@@ -294,16 +294,16 @@ body {
 /* ---------------------------------------------------------- */
 
 .site-nav-main {
-  background: color(var(--secondary));
   position: fixed;
   top: 0;
   padding: 0;
   width: 100%;
   height: 4vw;
-  max-height: 60px;
+  max-height: 70px;
   min-height: 40px;
   z-index: 200;
-  background: color(var(--blue) l(-5%));
+  /* background: color(var(--primary) l(-5%)); */
+  background-image: linear-gradient(var(--primary), var(--third));
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -338,11 +338,6 @@ body {
   .site-nav-left-wrapper:after,
 .site-nav-main .site-nav-left-wrapper:after {
   right: 0;
-  /* background: linear-gradient(
-    to right,
-    color(var(--blue) l(-5%) a(0)) 0%,
-    color(var(--blue) l(-5%)) 100%
-  ); */
 }
 
 .site-nav-left {
@@ -564,7 +559,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 @media (min-width: 1200px) {
   .nav li a {
-    font-size: 20px;
+    font-size: 22px;
+    letter-spacing: 2.5px;
   }
 }
 
@@ -1198,6 +1194,18 @@ make sure this only happens on large viewports / desktop-ish devices.
 
 /* 7. Single Post
 /* ---------------------------------------------------------- */
+
+.post-full {
+  /* multi-box shadow to effect only the right and left sides */
+  box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white,
+    12px 0 15px -4px rgba(0, 0, 0, 0.05), -12px 0 15px -4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 1200px) {
+  .post-full {
+    box-shadow: none;
+  }
+}
 
 .post-template .site-main,
 .page-template .site-main {
@@ -2365,6 +2373,10 @@ Usage (In Ghost editor):
   flex-direction: column;
 }
 
+.post-content h1 {
+  color: color(var(--h1));
+}
+
 .post-content h2 {
   color: color(var(--h2));
 }
@@ -2609,7 +2621,8 @@ Usage (In Ghost editor):
   content: "";
   position: absolute;
   width: 6px;
-  background-color: color(var(--primary));
+  /* background-color: color(var(--primary)); */
+  background-image: linear-gradient(var(--primary), var(--third));
   top: 0;
   bottom: 0;
   left: 50%;
@@ -2621,6 +2634,17 @@ Usage (In Ghost editor):
   position: relative;
   background-color: inherit;
   width: 50%;
+  margin-bottom: -150px;
+}
+
+.timeline-container:last-child {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 1200px) {
+  .timeline-container {
+    margin-bottom: 0px;
+  }
 }
 
 .timeline-container p,
@@ -2714,8 +2738,9 @@ Usage (In Ghost editor):
   margin: 0;
   padding: 10px 30px;
   height: 90px;
-  font-size: 1.4em;
-  background: color(var(--primary));
+  font-size: 1.2em;
+  /* background: color(var(--primary)); */
+  background-image: linear-gradient(var(--primary), var(--third));
   color: color(var(--secondary));
 }
 
@@ -2750,7 +2775,7 @@ Usage (In Ghost editor):
 }
 
 .timeline-container.left .timeline-content .metadata .date {
-  left: 695px;
+  left: 100%;
   top: 290px;
 }
 
@@ -2797,6 +2822,10 @@ Usage (In Ghost editor):
   /* Make all right containers behave like the left ones */
   .timeline-container.right {
     left: 0%;
+  }
+
+  .timeline-container .date {
+    display: none;
   }
 }
 
@@ -2899,9 +2928,18 @@ Usage (In Ghost editor):
   flex-direction: column;
   justify-content: center;
   width: 20%;
-  background-color: color(var(--primary));
+  /* background-color: color(var(--primary)); */
+  background-image: linear-gradient(
+    to bottom right,
+    var(--primary),
+    var(--third)
+  );
+}
+
+.calendar-card .date p {
   text-align: center;
 }
+
 @media (max-width: 1000px) {
   .calendar-card .date {
     width: 100%;
@@ -3682,7 +3720,8 @@ Usage (In Ghost editor):
   padding-top: 20px;
   padding-bottom: 60px;
   color: #fff;
-  background: color(var(--blue) l(-5%));
+  /* background: color(var(--third) l(-5%)); */
+  background-image: linear-gradient(var(--primary), var(--third));
 }
 
 .site-footer-content {
