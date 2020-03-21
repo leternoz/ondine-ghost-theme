@@ -2,9 +2,9 @@
 /* ---------------------------------------------------------- */
 
 :root {
-  --primary: #3590bf;
+  --primary: #45907e;
   --secondary: white;
-  --third: #7ba4fd;
+  --third: #65c3a9;
   /* Colours */
   --blue: #47b6ff;
   --darkblue: #2d6ffc;
@@ -22,10 +22,10 @@
   --darkmode: color(var(--darkgrey) l(+2%));
   /* Articles */
   --text: #484848;
-  --h1: #0034a3;
-  --h2: #527ad0;
-  --h3: #7493d6;
-  --h4: #0050fc;
+  --h1: #027272;
+  --h2: #3e9494;
+  --h3: #61afaf;
+  --h4: #00c1b7;
   --metadata: #8ba1cd;
 }
 
