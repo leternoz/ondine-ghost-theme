@@ -1328,7 +1328,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .team-member figure {
-  width: 12vw;
+  width: 200px;
 }
 
 .team-member figure img {
@@ -1348,13 +1348,12 @@ make sure this only happens on large viewports / desktop-ish devices.
 
 .team-member {
   position: relative;
-  height: 20vw;
 }
 
 .team-member:nth-child(odd) figure {
   float: right;
-  margin-left: 2vw;
-  margin-right: -4vw;
+  margin-left: 30px;
+  margin-right: -60px;
 }
 
 .team-member:nth-child(odd) h2,
@@ -1364,13 +1363,25 @@ make sure this only happens on large viewports / desktop-ish devices.
 
 .team-member:nth-child(even) figure {
   float: left;
-  margin-right: 2vw;
-  margin-left: -4vw;
+  margin-right: 30px;
+  margin-left: -60px;
 }
 
 .team-member:nth-child(even) h2,
 .team-member:nth-child(even) h4 {
   text-align: left;
+}
+
+@media (max-width: 700px) {
+  .team-post-content .team-member figure {
+    float: initial;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .team-post-content .team-member h2,
+  .team-post-content .team-member h4 {
+    text-align: center;
+  }
 }
 
 @media (max-width: 500px) {
@@ -2460,7 +2471,7 @@ Usage (In Ghost editor):
 }
 
 .post-full-content figure {
-  margin: 0.8em 0 2.3em;
+  margin: 0.8em auto 2.3em;
 }
 
 .post-full-content h1 + figure,
@@ -3832,7 +3843,6 @@ Usage (In Ghost editor):
 .site-footer .nav li {
   display: block;
   transition: none;
-  padding: 0 2vw;
   margin-bottom: 8px;
 }
 
@@ -3844,6 +3854,7 @@ Usage (In Ghost editor):
   text-decoration: none;
   margin: 0;
   padding: 0;
+  color: hsla(0, 0%, 100%, 0.7);
 }
 
 .site-footer .nav li a:before {
