@@ -188,7 +188,7 @@ body {
 
 .site-logo {
   height: 15vw;
-  max-height: 140px;
+  max-height: 170px;
 }
 
 @media (min-width: 601px) {
@@ -235,8 +235,8 @@ body {
 }
 
 .site-home-header .site-description {
-  font-size: 2.6rem;
-  font-weight: 300;
+  font-size: 3.2rem;
+  font-weight: 400;
 }
 
 /* 4.2 Archive header (tag and author post lists)
@@ -356,6 +356,7 @@ body {
 
 .site-nav-main .inner {
   display: flex;
+  max-width: 1400px;
 }
 
 /* Site Nav Hack Explanation (above):
@@ -548,8 +549,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .nav li a {
   position: relative;
-  font-size: 2vw;
-  letter-spacing: 1px;
+  font-size: 2.2vw;
+  letter-spacing: 0.5px;
   display: block;
   padding: 12px 14px;
   color: #fff;
@@ -557,9 +558,9 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   transition: opacity 0.35s ease-in-out;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
   .nav li a {
-    font-size: 22px;
+    font-size: 1.7em;
     letter-spacing: 2.5px;
   }
 }
@@ -1329,6 +1330,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 
 .team-member figure {
   width: 200px;
+  margin-bottom: 0;
 }
 
 .team-member figure img {
@@ -1336,14 +1338,26 @@ make sure this only happens on large viewports / desktop-ish devices.
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 }
 
+.team-post-content .team-member > p {
+  min-height: 150px;
+}
+
+.team-post-content .team-member blockquote {
+  font-size: 1.2em;
+  min-width: unset;
+}
+
 .team-post-content .team-member h2 {
   margin: 0;
+  font-size: 1.5em;
 }
 
 .team-post-content .team-member h4 {
   margin: 0;
   color: var(--h4);
   font-weight: normal;
+  font-size: 1.3em;
+  margin-bottom: 10px;
 }
 
 .team-member {
@@ -1354,6 +1368,24 @@ make sure this only happens on large viewports / desktop-ish devices.
   float: right;
   margin-left: 30px;
   margin-right: -60px;
+}
+
+.team-member:nth-child(odd) blockquote {
+  padding-right: 0;
+}
+
+@media (min-width: 1300px) {
+  .team-member:nth-child(odd) blockquote {
+    margin-right: 10vw;
+  }
+}
+
+@media (min-width: 700px) {
+  .team-member:nth-child(even) blockquote {
+    padding-left: 0;
+    border-left: none;
+    border-right: 3px solid var(--third);
+  }
 }
 
 .team-member:nth-child(odd) h2,
